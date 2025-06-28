@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Detail - My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .project-header {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .project-header h1 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            color: #666;
+        }
+        
+        .meta-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .project-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .project-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .technologies {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .technologies h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+        
+        .tech-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #3498db;
+        }
+        
+        .features {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .features h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+        
+        .features ul {
+            list-style: none;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .features li:before {
+            content: "✓";
+            color: #27ae60;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .project-links {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        .btn-secondary {
+            background: #95a5a6;
+        }
+        
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-header h1 {
+                font-size: 2rem;
+            }
+            
+            .project-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">My Portfolio</div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <a href="{% url 'projects' %}" class="back-link">← Back to Projects</a>
+            
+            <!-- Project Header -->
+            <div class="project-header">
+                <h1>Project #{{ project_id }} Details</h1>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Category:</span> Web Application
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Completion:</span> January 2025
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Duration:</span> 3 months
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Team Size:</span> Solo Project
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Image -->
+            <div class="project-image">
+                Project {{ project_id }} Screenshot
+            </div>
+
+            <!-- Project Description -->
+            <div class="project-content">
+                <h2>Project Overview</h2>
+                <p>
+                    This is a detailed view of project #{{ project_id }}. Lorem ipsum dolor sit amet, consectetur 
+                    adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+                    mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.
+                </p>
+                <p>
+                    The project demonstrates my skills in full-stack development, including frontend design, 
+                    backend logic, database management, and deployment strategies. It showcases my ability to 
+                    create scalable and maintainable applications.
+                </p>
+            </div>
+
+            <!-- Technologies Used -->
+            <div class="technologies">
+                <h2>Technologies Used</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">Django</div>
+                    <div class="tech-item">Python</div>
+                    <div class="tech-item">PostgreSQL</div>
+                    <div class="tech-item">HTML/CSS</div>
+                    <div class="tech-item">JavaScript</div>
+                    <div class="tech-item">Bootstrap</div>
+                    <div class="tech-item">Git</div>
+                    <div class="tech-item">Docker</div>
+                </div>
+            </div>
+
+            <!-- Key Features -->
+            <div class="features">
+                <h2>Key Features</h2>
+                <ul>
+                    <li>Responsive design that works on all devices</li>
+                    <li>User authentication and authorization system</li>
+                    <li>Real-time data updates and notifications</li>
+                    <li>Advanced search and filtering capabilities</li>
+                    <li>RESTful API integration</li>
+                    <li>Comprehensive admin dashboard</li>
+                    <li>Secure payment processing</li>
+                    <li>Email notification system</li>
+                    <li>SEO optimization and social media integration</li>
+                    <li>Performance optimization and caching</li>
+                </ul>
+            </div>
+
+            <!-- Project Links -->
+            <div class="project-links">
+                <h2>Project Links</h2>
+                <a href="#" class="btn">Live Demo</a>
+                <a href="#" class="btn btn-secondary">GitHub Repository</a>
+                <a href="#" class="btn btn-secondary">Documentation</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - My Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        .main-content {
+            padding: 3rem 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .profile-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            height: fit-content;
+        }
+        
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        
+        .profile-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-card .title {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            text-align: left;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+        }
+        
+        .about-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-content h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+        
+        .skills-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .skills-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .skill-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            padding: 0.3rem 0;
+            color: #555;
+        }
+        
+        .experience-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .experience-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .experience-item {
+            border-left: 3px solid #3498db;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .experience-item::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #3498db;
+            border-radius: 50%;
+            position: absolute;
+            left: -7.5px;
+            top: 0.5rem;
+        }
+        
+        .experience-item h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-item .company {
+            color: #3498db;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-item .date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        footer {
+            background: #34495e;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">My Portfolio</div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'home' %}#projects">Projects</a></li>
+                <li><a href="{% url 'home' %}#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1>About Me</h1>
+                <p>Get to know more about my journey, skills, and experience</p>
+            </div>
+
+            <!-- About Grid -->
+            <div class="about-grid">
+                <!-- Profile Card -->
+                <div class="profile-card">
+                    <div class="profile-image">Your Photo</div>
+                    <h3>John Doe</h3>
+                    <p class="title">Full Stack Developer</p>
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> john.doe@example.com</p>
+                        <p><strong>Phone:</strong> (555) 123-4567</p>
+                        <p><strong>Location:</strong> New York, USA</p>
+                        <p><strong>Experience:</strong> 3+ Years</p>
+                    </div>
+                    <a href="{% url 'home' %}#contact" class="btn">Contact Me</a>
+                </div>
+
+                <!-- About Content -->
+                <div class="about-content">
+                    <h2>My Story</h2>
+                    <p>
+                        Hello! I'm John Doe, a passionate full-stack developer with over 3 years of experience in creating 
+                        digital solutions that make a real difference. My journey into web development began during my 
+                        college years when I discovered the power of code to solve complex problems and bring ideas to life.
+                    </p>
+                    <p>
+                        I specialize in building modern, responsive web applications using cutting-edge technologies. 
+                        My expertise spans both frontend and backend development, allowing me to create comprehensive 
+                        solutions from concept to deployment.
+                    </p>
+                    <p>
+                        When I'm not coding, I enjoy contributing to open-source projects, learning new technologies, 
+                        and sharing my knowledge with the developer community. I believe in continuous learning and 
+                        staying updated with the latest industry trends and best practices.
+                    </p>
+                    <p>
+                        I'm passionate about creating user-friendly interfaces and writing clean, maintainable code. 
+                        My goal is to build applications that not only look great but also provide exceptional user experiences.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="skills-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend Development</h3>
+                        <ul class="skill-list">
+                            <li>HTML5 & CSS3</li>
+                            <li>JavaScript (ES6+)</li>
+                            <li>React.js</li>
+                            <li>Vue.js</li>
+                            <li>Bootstrap & Tailwind CSS</li>
+                            <li>Responsive Design</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Backend Development</h3>
+                        <ul class="skill-list">
+                            <li>Python</li>
+                            <li>Django & Flask</li>
+                            <li>Node.js & Express</li>
+                            <li>RESTful APIs</li>
+                            <li>PostgreSQL & MySQL</li>
+                            <li>MongoDB</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <ul class="skill-list">
+                            <li>Git & GitHub</li>
+                            <li>Docker</li>
+                            <li>AWS & Heroku</li>
+                            <li>Linux/Unix</li>
+                            <li>VS Code</li>
+                            <li>Postman</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="experience-section">
+                <h2>Professional Experience</h2>
+                
+                <div class="experience-item">
+                    <h3>Senior Web Developer</h3>
+                    <p class="company">Tech Solutions Inc.</p>
+                    <p class="date">January 2023 - Present</p>
+                    <p>Lead development of client web applications using Django and React. Mentor junior developers and collaborate with cross-functional teams to deliver high-quality solutions.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Full Stack Developer</h3>
+                    <p class="company">Digital Agency Pro</p>
+                    <p class="date">March 2022 - December 2022</p>
+                    <p>Developed and maintained multiple client websites and web applications. Implemented responsive designs and optimized applications for performance and SEO.</p>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Junior Web Developer</h3>
+                    <p class="company">StartUp Ventures</p>
+                    <p class="date">June 2021 - February 2022</p>
+                    <p>Assisted in building and maintaining company websites. Gained experience in modern web development frameworks and best practices.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 My Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
